@@ -1,0 +1,36 @@
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand__mark">Ng</div>
+      <div>
+        <span class="brand__text">Angular Concepts</span>
+        <span class="brand__sub">Playground &middot; Angular 19</span>
+      </div>
+    </div>
+
+    <!--
+      @for is the modern control-flow syntax (Angular 17+).
+      `track` is required and tells Angular how to identify each item, so it can
+      reuse DOM nodes instead of recreating them.
+    -->
+    <nav class="nav">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+        <span class="nav__num">&#8962;</span> Overview
+      </a>
+      @for (concept of concepts; track concept.slug; let i = $index) {
+        <a [routerLink]="['/', concept.slug]" routerLinkActive="is-active">
+          <span class="nav__num">{{ i + 1 }}</span> {{ concept.title }}
+        </a>
+      }
+    </nav>
+  </aside>
+
+  <main class="content">
+    <!-- The active route's component is rendered here. -->
+    <router-outlet />
+
+    <p class="muted" style="margin-top:2rem;font-size:.8rem">
+      AngularConceptsPlayground &middot; {{ year }} &middot; built to be read, run and broken.
+    </p>
+  </main>
+</div>
