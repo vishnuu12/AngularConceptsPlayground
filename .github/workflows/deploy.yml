@@ -1,0 +1,71 @@
+# Builds the Angular app and publishes it to GitHub Pages.
+#
+# One-time setup: in the repo, Settings -> Pages -> Source = "GitHub Actions".
+# After that, every push to main redeploys the live site.
+#
+# NOTE ON THE PLAN: GitHub Pages on a PRIVATE repository requires GitHub Pro,
+# Team or Enterprise. On a Free account the repository has to be public. See
+# the "Live site" section of the README.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Lets you redeploy by hand from the Actions tab.
+  workflow_dispatch:
+
+# The minimum the Pages deployment needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deployments race; queue them instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # "npm ci" needs a lockfile, and none is committed here, so install
+      # normally. Commit a package-lock.json and this can become "npm ci".
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      # Runs ng build (with the /AngularConceptsPlayground/ base href from
+      # angular.json) and then the SPA 404 fallback step.
+      - name: Build for production
+        run: npm run build
+
+      # Reads the Pages configuration and turns Pages on if it is not yet on.
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload the built site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/angular-concepts-playground/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

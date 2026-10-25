@@ -18,6 +18,46 @@ npm run build   # production build into dist/
 
 ---
 
+## Live site (GitHub Pages)
+
+**https://vishnuu12.github.io/AngularConceptsPlayground/**
+
+Every push to `main` rebuilds and republishes it. The workflow is
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+### The three things that make a SPA work on Pages
+
+1. **A correct base href.** A project site is served from `/<repo>/`, not from the domain root, so
+   the build sets `baseHref: "/AngularConceptsPlayground/"` in the production configuration of
+   `angular.json`. Without it every script, stylesheet and route URL would point one level too high.
+
+2. **A 404 fallback.** Pages answers with its own 404 page for any path it has no file for, which
+   would break a deep link like `/interview` on reload. `scripts/make-spa-fallbacks.mjs` (run by
+   `npm run build`) ships a copy of `index.html` as `404.html`, so Pages serves the app and the
+   Angular router takes over. The URL in the address bar never changes.
+
+3. **A deploy workflow.** GitHub Actions builds the app and uploads the output folder as the Pages
+   artifact - no `gh-pages` branch, no committed build output.
+
+### One-time setup
+
+Repo **Settings → Pages → Source: GitHub Actions**. The workflow also tries to enable Pages itself
+(`enablement: true` on `actions/configure-pages`).
+
+> **Plan note:** GitHub Pages on a **private** repository requires GitHub Pro, Team or Enterprise.
+> On a Free account the repository must be **public**. If the deploy job fails with a Pages or
+> billing error, that is the cause.
+
+### Verifying the production build locally
+
+```bash
+npm run build
+# then serve the folder it produced and open /AngularConceptsPlayground/
+npx serve dist/angular-concepts-playground/browser
+```
+
+---
+
 ## What is in here
 
 Every page is a **lazy-loaded route**, so you can watch the chunks arrive in the Network tab as you
