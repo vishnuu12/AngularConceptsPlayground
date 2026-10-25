@@ -17,6 +17,11 @@ import { CONCEPTS } from '../core/concepts';
         and each one explains <em>why</em> the concept exists, not just how to type it.
         Open the sidebar, pick a concept, and read the source next to the demo.
       </p>
+      <p style="margin-top:.6rem">
+        Preparing for an interview? Every page now ends with an <em>In an interview</em> panel, and
+        the whole playground is collected as question-and-answer on the
+        <a routerLink="/interview" style="color:#7dd3fc">Interview prep</a> page.
+      </p>
     </section>
 
     <div class="panel">
@@ -27,7 +32,11 @@ import { CONCEPTS } from '../core/concepts';
         <li>Every page is a <strong>lazy-loaded</strong> route, so you can watch the network tab as you navigate.</li>
         <li>Source lives under <code class="inline">src/app/concepts/NN-*/</code>, numbered in the order below.</li>
         <li>Run it with <code class="inline">npm start</code>; build it with <code class="inline">npm run build</code>.</li>
-        <li>Each page ends with the <em>why</em>: what breaks if you don't use the concept.</li>
+        <li>Each page ends with the <em>why</em> (what breaks without it) and an <em>In an interview</em> panel.</li>
+        <li>
+          <a routerLink="/interview">Interview prep</a> gathers every concept into question and
+          answer, filterable, in one place.
+        </li>
       </ul>
     </div>
 
@@ -39,6 +48,12 @@ import { CONCEPTS } from '../core/concepts';
           <p>{{ concept.blurb }}</p>
         </a>
       }
+
+      <a class="card" routerLink="/interview">
+        <span class="badge badge--warn">Q&amp;A</span>
+        <h3>Interview prep</h3>
+        <p>Every concept as question and answer, with the answers you would actually give.</p>
+      </a>
     </div>
   `,
 })

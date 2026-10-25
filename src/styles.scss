@@ -201,3 +201,30 @@ ul.tight li { margin-bottom: .2rem; }
 .card:hover { border-color: var(--accent); box-shadow: 0 4px 14px rgba(15,23,42,.08); }
 .card h3 { margin: 0 0 .25rem; font-size: .98rem; }
 .card p { margin: 0; font-size: .84rem; color: var(--text-soft); }
+
+/* ---------- interview prep ---------- */
+
+/* The "In an interview" panel that closes every concept page. */
+.panel--interview { border-left: 4px solid var(--warn); background: #fffdf7; }
+
+/* A small uppercase label used to separate nav groups. */
+.nav__divider {
+  margin: .7rem .6rem .25rem;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6b7f99;
+}
+
+/* Collapsible question/answer rows on the Interview prep page. */
+details.qa {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .55rem .8rem;
+  margin-bottom: .5rem;
+  background: var(--panel);
+}
+details.qa summary { cursor: pointer; font-weight: 600; }
+details.qa[open] summary { margin-bottom: .4rem; }
+details.qa[open] { border-color: var(--accent); }
+details.qa p { margin: .3rem 0 0; }

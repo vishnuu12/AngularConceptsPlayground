@@ -164,6 +164,16 @@ export const routes: Routes = [
       import('./concepts/15-state/state-demo.component').then((m) => m.StateDemoComponent),
   },
 
+  // ---- Interview prep --------------------------------------------------
+  // A single page that gathers every concept into question form - the one
+  // place to revise from before an interview.
+  {
+    path: 'interview',
+    title: 'Interview prep',
+    loadComponent: () =>
+      import('./concepts/interview/interview-prep.component').then((m) => m.InterviewPrepComponent),
+  },
+
   // ---- Fallback --------------------------------------------------------
   {
     path: '**',

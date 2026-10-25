@@ -3,6 +3,10 @@
 Fifteen small, self-contained Angular demos - each one **runs**, each one is **commented**, and
 each one explains *why* the concept exists, not just how to type it.
 
+Every concept page also ends with an **In an interview** panel, and the whole playground is
+collected as question-and-answer on the **[Interview prep](/interview)** page - 55 questions across
+8 areas, filterable, in one place.
+
 This is the Angular counterpart to the [ConceptPlayground](https://github.com/vishnuu12/ConceptPlayground)
 repo: same idea, different stack.
 
@@ -36,6 +40,29 @@ navigate.
 | 13 | **RxJS & Observables** | `/rxjs` | `debounceTime` + `switchMap`, `async` pipe, cleanup |
 | 14 | **Angular CLI** | `/cli` | Interactive command reference |
 | 15 | **State Management** | `/state` | A signal store, and where NgRx / Akita fit |
+| Q | **Interview prep** | `/interview` | 55 questions and answers, grouped and filterable |
+
+---
+
+## Interview prep
+
+The `/interview` page is the revision companion. It is not a list of trivia - every answer is
+written the way you would say it out loud, and where an interviewer is really testing a second
+thing, the answer says so.
+
+| Area | Covers |
+| --- | --- |
+| Fundamentals and architecture | Angular vs React, SPAs, the startup files, standalone vs NgModule, TypeScript, the CLI |
+| Components, templates and binding | The four bindings, property vs attribute binding, inputs/outputs, content projection, the asterisk, `track` |
+| Lifecycle and change detection | Hook order, `ngOnChanges` vs signal inputs, zone.js, zoneless, `OnPush`, pure vs impure pipes, unsubscribing |
+| Directives, pipes and forms | Structural directives from scratch, template-driven vs reactive, custom and async validators, `FormArray` |
+| Services, DI and state | The injector hierarchy, `InjectionToken`, `useClass`/`useFactory`, signals vs RxJS, when NgRx is worth it |
+| Routing, guards and performance | Nested routes, reading params, every guard type, lazy loading and preloading, budgets, load time |
+| HTTP, RxJS and realtime | `HttpClient`, interceptors, Observable vs Promise, `switchMap` vs `mergeMap`, Subjects, SignalR, gRPC |
+| Testing, quality and practice | `TestBed`, `HttpTestingController`, testing a pipe or guard, smart vs presentational components |
+
+It pairs with the **In an interview** panel on every concept page: the panel is the short version
+you read next to the code, the Q&A page is the long version you revise from.
 
 ---
 
@@ -57,6 +84,7 @@ src/
       03-data-binding/
       ...
       15-state/
+      interview/                   # the Q&A revision page
 ```
 
 Each concept folder is self-contained. The numbered prefix matches the sidebar order, so you can

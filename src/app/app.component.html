@@ -22,6 +22,14 @@
           <span class="nav__num">{{ i + 1 }}</span> {{ concept.title }}
         </a>
       }
+
+      <div class="nav__divider">Also</div>
+      <a routerLink="/interview" routerLinkActive="is-active">
+        <span class="nav__num">Q</span> Interview prep
+      </a>
+      <a routerLink="/admin" routerLinkActive="is-active">
+        <span class="nav__num">*</span> Admin (guarded)
+      </a>
     </nav>
   </aside>
 
