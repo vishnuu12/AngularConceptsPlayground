@@ -123,6 +123,16 @@ import { InitialsPipe } from './initials.pipe';
         in the app.
       </p>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>A pipe transforms a value for display; the underlying data is untouched. Formatting is a view concern, not a data concern.</li>
+        <li>Pure by default: it re-runs only when its input changes. An impure pipe runs on every change-detection cycle, which is a performance trap on a list.</li>
+        <li>They chain left to right, and arguments come after colons: value | slice : 0 : 6 | uppercase.</li>
+        <li>A custom pipe is an &#64;Pipe class with a transform method - and it is the easiest thing in Angular to test: instantiate the class and call transform.</li>
+        <li>Do not put behaviour in a pipe that belongs in the component. Pipes format; they do not decide.</li>
+      </ul>
+    </div>
   `,
 })
 export class PipesDemoComponent {

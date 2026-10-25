@@ -131,6 +131,17 @@ interface Task {
         into twenty templates.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>Three kinds: a component is a directive with a template, an attribute directive changes an existing element ([appHighlight], ngClass), and a structural directive adds or removes elements.</li>
+        <li>The asterisk is sugar for an ng-template: *ngIf desugars to &lt;ng-template [ngIf]&gt;. Say that and you have answered the real question.</li>
+        <li>A custom structural directive injects TemplateRef and ViewContainerRef and calls createEmbeddedView - which is exactly how *ngFor works inside.</li>
+        <li>Prefer &#64;HostListener and &#64;HostBinding over touching element.nativeElement; it keeps the directive testable.</li>
+        <li>&#64;if and &#64;for are the modern built-ins and need no import; *ngIf and *ngFor come from CommonModule.</li>
+        <li>&#64;for requires track - and a stable id, not the loop index. Index keys reuse the wrong DOM node after a removal.</li>
+      </ul>
+    </div>
   `,
 })
 export class DirectivesDemoComponent {

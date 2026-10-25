@@ -63,6 +63,16 @@ import { Employee, EmployeeCardComponent } from './employee-card.component';
         That contract is what makes large UIs possible.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>A component is three things: a class, a template, and &#64;Component metadata. The class holds the logic, the template is the view.</li>
+        <li>Data goes in with &#64;Input and comes out with &#64;Output. A child never changes its parent - it emits, and the parent decides. One-way flow is what keeps a tree predictable.</li>
+        <li>The capital letter is not cosmetic: &lt;app-employee-card&gt; is your component, &lt;div&gt; is a DOM tag.</li>
+        <li>Since Angular 19 a component is standalone by default and declares its own imports - that is what replaced the module's role for a single component.</li>
+        <li>When to split? When a piece is reused, or when it has its own state or its own reason to change. Not because a file got long.</li>
+      </ul>
+    </div>
   `,
 })
 export class ComponentsDemoComponent {

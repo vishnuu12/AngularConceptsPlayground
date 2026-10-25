@@ -108,6 +108,15 @@ import { FormsModule } from '@angular/forms';
         stays maintainable as it grows.
       </p>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>Four forms, and the punctuation tells you the direction: double-curly interpolation (class to view), square-bracket property binding [x], round-bracket event binding (x), and the banana-in-a-box two-way binding [(x)].</li>
+        <li>[(ngModel)]="x" is not magic - it is literally [ngModel]="x" plus (ngModelChange)="x = $event".</li>
+        <li>[disabled] sets the DOM property; [attr.aria-label] sets the HTML attribute. Use attribute binding for attributes that have no matching property.</li>
+        <li>Interpolation takes an expression, not a statement - a ternary, never an if.</li>
+      </ul>
+    </div>
   `,
 })
 export class DataBindingDemoComponent {

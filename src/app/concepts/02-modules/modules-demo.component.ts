@@ -64,6 +64,15 @@ import { Component } from '@angular/core';
         actually visits - which is exactly what this page demonstrates.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>An NgModule groups things: declarations = belongs to this module, imports = what my declarations may use, exports = what I give to others, providers = services at this injector level.</li>
+        <li>Standalone is the default now, but modules still matter twice over: existing codebases are full of them, and a module is a convenient unit to lazy-load as one chunk.</li>
+        <li>A component meant for a module must say standalone: false explicitly in Angular 19 - that trips people up.</li>
+        <li>The honest answer to which you prefer: standalone for new code, because everything a component needs is in one file.</li>
+      </ul>
+    </div>
   `,
 })
 export class ModulesDemoComponent {
