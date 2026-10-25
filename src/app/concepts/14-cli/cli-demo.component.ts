@@ -96,6 +96,16 @@ npm run build                                   # verifies it compiles for produ
         slow app creeping in one import at a time.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>The CLI owns the build: ng serve, ng build, ng test, ng update, ng add. It is not optional plumbing.</li>
+        <li>ng generate writes files that follow the project conventions and registers them where needed. That consistency across a team is the real value, not the typing it saves.</li>
+        <li>ng add runs a library's schematic, so the dependency, the providers and the config are wired in one step.</li>
+        <li>ng update applies the official migrations - which is how you move between major versions safely rather than by hand.</li>
+        <li>angular.json is where the build, assets, budgets and environments are configured; it is worth knowing your way around it.</li>
+      </ul>
+    </div>
   `,
 })
 export class CliDemoComponent {

@@ -65,6 +65,16 @@ import { ReactiveFormComponent } from './reactive-form.component';
         benefit. Anything important must be validated again on the server.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>Template-driven (FormsModule, ngModel) builds the model from the HTML. Reactive (ReactiveFormsModule, FormBuilder) builds it in the class, so it is typed, testable and easy to make dynamic.</li>
+        <li>Default to reactive for anything real; template-driven is fine for one or two fields.</li>
+        <li>A validator is a function returning null or an error object. A group validator receives the whole FormGroup, which is how you compare two fields.</li>
+        <li>Show an error only when the control is invalid AND touched - shouting at someone mid-typing is the classic form UX mistake.</li>
+        <li>patchValue for partial updates, setValue when the whole shape must match. And remember client validation is feedback; the server validates for real.</li>
+      </ul>
+    </div>
   `,
 })
 export class FormsDemoComponent {

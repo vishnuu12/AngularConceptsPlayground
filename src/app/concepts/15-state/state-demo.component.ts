@@ -125,6 +125,16 @@ export const selectRemaining = createSelector(selectTodos, (todos) =&gt;
         workflows or a large team that needs one enforced pattern.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>One store owns the state and is the only thing allowed to change it. That is the entire idea - and it is what makes who changed this answerable.</li>
+        <li>With signals: a private signal, a public readonly view, computed values for anything derived, and methods for the mutations.</li>
+        <li>Derived values are computed, not stored, so they cannot go stale - which is the bug you get from keeping two pieces of state in sync by hand.</li>
+        <li>Reach for NgRx or Akita when the state is genuinely global, updates arrive from many async sources, or a large team needs one enforced pattern. NgRx costs real boilerplate.</li>
+        <li>Do not add a store on day one. A signal service covers most apps, and saying that out loud reads as experience.</li>
+      </ul>
+    </div>
   `,
 })
 export class StateDemoComponent {

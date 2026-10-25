@@ -102,6 +102,17 @@ import { SearchService } from './search.service';
         <code class="inline">takeUntilDestroyed()</code>, or an operator that completes.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>An Observable is a lazy stream: nothing happens until you subscribe, and unsubscribing cancels the work. A Promise is eager and cannot be cancelled - that difference is the whole reason Angular uses Observables for HTTP.</li>
+        <li>Operators do the real work: debounceTime, distinctUntilChanged, switchMap, catchError, takeUntil, combineLatest.</li>
+        <li>switchMap cancels the previous inner observable - right for search. mergeMap runs them all in parallel - right for independent writes. concatMap queues them in order.</li>
+        <li>Subject pushes and subscribes; BehaviorSubject also replays the current value to new subscribers, which is what you want for state you might need to read at any time.</li>
+        <li>The async pipe subscribes and unsubscribes for you. If you subscribe by hand, tie it to the component with takeUntilDestroyed.</li>
+        <li>Signals are for current state; RxJS is for streams over time. Saying both - and where each fits - is the modern answer.</li>
+      </ul>
+    </div>
   `,
 })
 export class RxjsDemoComponent {

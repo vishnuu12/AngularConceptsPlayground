@@ -71,6 +71,16 @@ import { LifecycleChildComponent } from './lifecycle-child.component';
         the unsubscribe up for you.)
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>Order: ngOnChanges, ngOnInit, ngAfterContentInit, ngAfterViewInit, ngOnDestroy - plus the Checked variants and ngDoCheck.</li>
+        <li>ngOnInit is where you load data. The constructor is only for wiring fields, because inputs are not set yet.</li>
+        <li>ngOnChanges fires on every input change - except for signal inputs, which the reactivity system tracks instead of reporting a change event.</li>
+        <li>ngOnDestroy is where leaks are prevented: unsubscribe, clear timers, disconnect. takeUntilDestroyed() ties a subscription to the component's lifetime without a manual unsubscribe.</li>
+        <li>OnPush only checks the component when an input reference changes, an event fires inside it, an async pipe emits, or a signal it reads changes. The catch: mutating an input in place will not trigger a check.</li>
+      </ul>
+    </div>
   `,
 })
 export class LifecycleDemoComponent {
