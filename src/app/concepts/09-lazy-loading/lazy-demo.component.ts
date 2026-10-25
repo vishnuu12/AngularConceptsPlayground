@@ -69,6 +69,16 @@ import { RouterLink } from '@angular/router';
         is the cheapest performance win available in a growing app.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>Three ways: loadComponent for one standalone component, loadChildren pointing at a route array, and loadChildren pointing at an NgModule. Each becomes its own chunk.</li>
+        <li>The bundler does the splitting, not the router - it sees the dynamic import and emits a separate file.</li>
+        <li>Lazy-load features, not single buttons. Each chunk is another round trip, so the initial bundle is what you are optimising.</li>
+        <li>Preloading (withPreloading) downloads the likely-next chunks in the background after startup.</li>
+        <li>Budgets in angular.json fail the build when the initial bundle crosses a limit - the cheapest guard against a slow app.</li>
+      </ul>
+    </div>
   `,
 })
 export class LazyDemoComponent {}

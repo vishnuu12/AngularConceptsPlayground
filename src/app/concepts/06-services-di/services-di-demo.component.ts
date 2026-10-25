@@ -78,6 +78,16 @@ import { GREETING_CONFIG } from './greeting.config';
         <li><strong>Configuration:</strong> tokens let you inject plain values safely.</li>
       </ul>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>Dependency injection removes the need to build your own dependencies: you ask for a token, the injector supplies an instance. That is what makes sharing one instance and swapping a fake in tests possible.</li>
+        <li>providedIn: 'root' gives one app-wide singleton. Listing a service in a component's providers array gives that component and its children their own private instance.</li>
+        <li>An InjectionToken is for plain values - a config object, a string - because the injector needs a unique, typed key to look them up.</li>
+        <li>useClass, useValue, useFactory and useExisting are the four ways to describe how a token is built. useClass is how you swap an implementation.</li>
+        <li>Modern style is inject(Service) in a field rather than constructor parameters. Same thing, shorter, and it works in field initialisers.</li>
+      </ul>
+    </div>
   `,
 })
 export class ServicesDiDemoComponent {

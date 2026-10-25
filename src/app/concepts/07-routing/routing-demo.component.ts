@@ -67,6 +67,16 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
         linkable, bookmarkable, shareable and reachable with the back button - for free.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>The route table maps a path to a component and router-outlet renders the match. Nested routes mirror the UI, and the parent stays mounted while children swap.</li>
+        <li>routerLink keeps the app alive; a plain href reloads the whole page and throws the state away.</li>
+        <li>Reading a parameter: the snapshot is simplest but stale if the component is reused for a different id; paramMap reacts; withComponentInputBinding lets you just declare an input.</li>
+        <li>The wildcard '**' route is how you show a 404 instead of a blank screen. It must come last, because routes match in order.</li>
+        <li>Guards, resolvers and lazy loading all hang off the same route config - so a route is where a feature's rules live.</li>
+      </ul>
+    </div>
   `,
 })
 export class RoutingDemoComponent {

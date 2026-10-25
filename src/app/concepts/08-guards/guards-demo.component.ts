@@ -98,6 +98,16 @@ import { AuthService } from './auth.service';
         landing on screens they cannot use.
       </div>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>A guard is a function that runs before navigation and returns true to allow, false to cancel, or a UrlTree to redirect.</li>
+        <li>Types: CanActivate, CanActivateChild, CanDeactivate (the unsaved-changes one people forget), CanMatch and Resolve.</li>
+        <li>Returning router.createUrlTree(...) is the idiomatic no - it redirects instead of leaving the user on an unchanged page.</li>
+        <li>Guards are a UX feature, not a security boundary. Anyone can call your API directly, so the server must enforce access. That is usually the point of the question.</li>
+        <li>They run in the injection context, so inject() works inside them - no constructor needed.</li>
+      </ul>
+    </div>
   `,
 })
 export class GuardsDemoComponent {

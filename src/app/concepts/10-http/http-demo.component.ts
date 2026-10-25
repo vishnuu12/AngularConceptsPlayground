@@ -94,6 +94,16 @@ import { NewUser, User } from './user.model';
         <li><strong>Testable:</strong> swap the service for a fake; no network in unit tests.</li>
       </ul>
     </div>
+    <div class="panel panel--interview">
+      <h2>In an interview</h2>
+      <ul class="tight">
+        <li>HttpClient returns Observables, which are lazy: nothing is sent until something subscribes, and the async pipe subscribes for you.</li>
+        <li>Keep calls in a typed service so the URL and the response shape live in one place; the component just consumes the result.</li>
+        <li>An interceptor sees every request and response - the right place for auth headers, logging, retries, a global spinner and error normalisation. Order matters: they run in order out and in reverse back.</li>
+        <li>catchError keeps the stream alive after a failure; retry handles transient ones; a 401 usually belongs in a global interceptor.</li>
+        <li>In tests, provideHttpClientTesting plus HttpTestingController lets you assert the URL and flush a fake response - no network, no flakiness.</li>
+      </ul>
+    </div>
   `,
 })
 export class HttpDemoComponent implements OnInit {
